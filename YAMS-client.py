@@ -10,7 +10,7 @@ while True:
     message = input() #salvez mesajul trimis de catre jucator in variabila message
     client_socket.send(message.encode()) #transmit mesajul codificat serverului
     mesaj_primit = client_socket.recv(500) #primesc mesajul serverului
-    if('CLOSE SESSION' in mesaj_primit.decode()): #daca primesc si string-ul 'CLOSE SESSION' afisez doar tabelul final si inchid sesiunea
+    if('CLOSE SESSION' in mesaj_primit.decode()): #daca in mesajul serverului primesc si string-ul 'CLOSE SESSION' afisez doar tabelul final si inchid sesiunea
         print(mesaj_primit.decode().replace('CLOSE SESSION', ''))
         client_socket.close()
         break
